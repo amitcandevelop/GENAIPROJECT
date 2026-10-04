@@ -9,13 +9,14 @@ $border-color: #2a3348;
 $text-primary: #e6edf3;
 $text-muted: #7d8590;
 $accent: #ff2d78;
-$font-stack: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-stack: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 
-// severity palette
+// ── Severity Palette ──────────────────────────────────────────────────────────
 $severity-high: #ff4d4d;
 $severity-medium: #f5a623;
 $severity-low: #3fb950;
 
+// ── Global ────────────────────────────────────────────────────────────────────
 *::-webkit-scrollbar {
     display: none;
 }
@@ -51,7 +52,7 @@ $severity-low: #3fb950;
     flex-shrink: 0;
 }
 
-// ── Left Nav ──────────────────────────────────────────────────────────────────
+// ── Left Navigation ──────────────────────────────────────────────────────────
 .interview-nav {
     width: 220px;
     flex-shrink: 0;
@@ -85,7 +86,9 @@ $severity-low: #3fb950;
         font-size: 0.875rem;
         cursor: pointer;
         text-align: left;
-        transition: background-color 0.15s, color 0.15s;
+        transition:
+            background-color 0.15s,
+            color 0.15s;
 
         &:hover {
             background-color: $bg-panel;
@@ -124,6 +127,7 @@ $severity-low: #3fb950;
     }
 }
 
+// ── Content Header ────────────────────────────────────────────────────────────
 .content-header {
     display: flex;
     align-items: baseline;
@@ -149,13 +153,14 @@ $severity-low: #3fb950;
     }
 }
 
-// ── Question Cards ────────────────────────────────────────────────────────────
+// ── Question List ────────────────────────────────────────────────────────────
 .q-list {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
 }
 
+// ── Question Cards ────────────────────────────────────────────────────────────
 .q-card {
     background-color: $bg-panel;
     border: 1px solid $border-color;
@@ -254,16 +259,16 @@ $severity-low: #3fb950;
     }
 }
 
-// ── Road Map ──────────────────────────────────────────────────────────────────
+// ── Road Map ─────────────────────────────────────────────────────────────────
 .roadmap-list {
     display: flex;
     flex-direction: column;
     gap: 0;
     position: relative;
 
-    // vertical timeline line
+    // Vertical timeline line
     &::before {
-        content: '';
+        content: "";
         position: absolute;
         left: 28px;
         top: 0;
@@ -278,6 +283,7 @@ $severity-low: #3fb950;
     }
 }
 
+// ── Road Map Day ─────────────────────────────────────────────────────────────
 .roadmap-day {
     display: flex;
     flex-direction: column;
@@ -285,9 +291,9 @@ $severity-low: #3fb950;
     padding: 0.75rem 0 0.75rem 3.5rem;
     position: relative;
 
-    // dot on timeline
+    // Dot on timeline
     &::before {
-        content: '';
+        content: "";
         position: absolute;
         left: 21px;
         top: 1.05rem;
@@ -447,6 +453,7 @@ $severity-low: #3fb950;
     }
 }
 
+// ── Skill Tags ────────────────────────────────────────────────────────────────
 .skill-tag {
     font-size: 0.775rem;
     font-weight: 500;
@@ -471,5 +478,90 @@ $severity-low: #3fb950;
         color: $severity-low;
         background-color: rgba($severity-low, 0.1);
         border-color: rgba($severity-low, 0.25);
+    }
+}
+
+// ── Responsive Design ────────────────────────────────────────────────────────
+@media (max-width: 1000px) {
+    .interview-layout {
+        flex-direction: column;
+    }
+
+    .interview-nav {
+        width: 100%;
+        padding: 1rem;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+    }
+
+    .interview-nav__label {
+        display: none;
+    }
+
+    .interview-nav__item {
+        width: auto;
+        white-space: nowrap;
+    }
+
+    .interview-divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    .interview-sidebar {
+        width: auto;
+        flex-direction: row;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding: 1.25rem;
+    }
+
+    .sidebar-divider {
+        display: none;
+    }
+
+    .match-score,
+    .skill-gaps {
+        flex: 1;
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 650px) {
+    .interview-page {
+        padding: 0;
+    }
+
+    .interview-layout {
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+
+    .interview-content {
+        padding: 1.25rem;
+        max-height: none;
+    }
+
+    .interview-sidebar {
+        flex-direction: column;
+    }
+
+    .match-score,
+    .skill-gaps {
+        width: 100%;
+    }
+
+    .roadmap-day {
+        padding-left: 2.75rem;
+    }
+
+    .roadmap-list::before {
+        left: 20px;
+    }
+
+    .roadmap-day::before {
+        left: 13px;
     }
 }
