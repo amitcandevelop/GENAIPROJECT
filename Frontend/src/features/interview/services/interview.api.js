@@ -3,7 +3,7 @@ import axios from "axios";
 const api = axios.create({
     baseURL: "https://genaiproject-fya0.onrender.com",
     withCredentials: true,
-});
+})
 
 
 /**
